@@ -17,25 +17,29 @@
 MVP
 
 - As a Farmer I can log in and add available options for purchase from my farm. 
-    [ ] Sign Up (Farmer)
-    [ ] LogIn (Farmer)
-    [ ] New Item Form  
+    [ ] Sign Up (additional fields for Farmer)** -Afia
+    [ ] LogIn (Farmer/Customer) -Afia
+
+    
 
 
-- As a consumer I can log in and see produce available in my local area (No GEO location            necessary for MVP).
-    [ ] Sign Up (Consumer)
-    [ ] LogIn (Consumer)
-    [ ] MarketPlace
+- As a consumer I can log in and see produce available in my local area (No GEO location necessary for MVP).
+    [ ] Sign Up (Consumer) - Afia
+    [ ] Location Modal (zip code)/ one input form, etc. 
+    [ ] MarketPlace/Product Catalog** (with ability to search all or separate farm)  
+    [ ] Item Page/ Product page 
 
 
 - As a farmer I can Edit and delete items from my inventory.
     [ ] Inventory Page
-    [ ] Edit Item
-    [ ] Delete Item 
+        [ ] Button Link to Customer View (separate page)
+        [ ] New Item Form  
+        [ ] Edit Item
+        [ ] Delete Item 
 
 - As a consumer I can fill up my shopping cart, and place an order (no payment necessary for MVP).
     [ ] Shopping Cart View ()
-    [ ] Order Page
+    [ ] Order Confirmation Page
 
 - As a farmer I can see the orders that come in for my produce so that I can prepare the orders for pick up.
     [ ] Order Inbox (Farmer)
