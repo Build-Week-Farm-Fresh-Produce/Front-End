@@ -4,6 +4,7 @@
 
 .pic{
     background-image: url("./img/reg2.jpg");
+    background-image: rgba(0,0,0,.3);
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: fixed;

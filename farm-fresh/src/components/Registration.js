@@ -16,7 +16,7 @@ const Wrap = styled.div`
 	display: flex;
 	flex-direction: row;
 	border-radius: 12px;
-	background: rgb(206, 212, 182, 0.6);
+	/* background: rgb(206, 212, 182, 0.6); */
 `;
 const FormContainer = styled.div`
 	box-sizing: border-box;

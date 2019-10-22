@@ -4,7 +4,7 @@ import axios from 'axios';
   const token = localStorage.getItem('token');
   // return an instance of axios
   return axios.create({
-    baseURL: 'https://reqres.in',
+    baseURL: 'http://localhost:3333',
     headers: {
       Authorization: token
     }
