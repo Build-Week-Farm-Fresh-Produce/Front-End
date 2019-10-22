@@ -3,7 +3,6 @@ import '../App.css';
 import styled from 'styled-components'
 
 const Card = styled.div`
-  width: 20%;
   height: 270px;
   background-color: springgreen;
   margin: 2%;
@@ -12,6 +11,7 @@ const Card = styled.div`
 
 export default function ProductCard(props) {
 
+    console.log('card', props)
   return (
   <>
   
