@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const ProductDetails = (props) => {
 
-  const [lineItem, setLineItem] = useState([]);
+  // const [lineItem, setLineItem] = useState([]);
 
   const currentProduct = props.products.find(curr => {
     return Number(curr.id) === Number(props.match.params.id)
@@ -13,9 +13,9 @@ const ProductDetails = (props) => {
 
   const addToCart = event => {
     // lineItem.push(currentProduct);
-    setLineItem(currentProduct);
+    props.setLineItem(currentProduct);
     console.log('added to cart');
-    console.log('lineItem',lineItem);
+    console.log('lineItem',props.lineItem);
   }
 
   return (
@@ -29,7 +29,7 @@ const ProductDetails = (props) => {
         >Add to cart</button>
         
         <hr></hr>
-        <Cart {...props} lineItem={lineItem} />
+        <Cart {...props} lineItem={props.lineItem} />
     </>
   )
 };

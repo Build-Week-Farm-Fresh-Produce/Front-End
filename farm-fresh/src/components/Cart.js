@@ -11,8 +11,8 @@ const Cart = (props) => {
   return (
     <>
       <h1>My Cart</h1>
-      <p>{props.lineItem.name}</p>
-      {console.log('cart items:', props.lineItem.name)}
+      {/* <p>{props.lineItem.name}</p>
+      {console.log('cart items:', props.lineItem.name)} */}
         
     </>
   )
