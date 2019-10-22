@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+.pic{
+    background-image: url("./img/reg2.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.left{
+    background: lightgrey;
+}
+
+.fields{
+    margin: 0 3%;
+        
+}
