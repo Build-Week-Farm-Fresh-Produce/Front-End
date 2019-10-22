@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { render, BrowserRouter } from "react-dom";
 import * as Yup from "yup";
+import '../Registration.css'
 import styled from "styled-components";
 import { withFormik, Form, Field } from "formik";
 import axiosWithAuth from "../utils/axiosWithAuth";
@@ -8,27 +9,24 @@ import axios from 'axios'
 
 const Wrap = styled.div`
 	max-width: 80vw;
-	max-height: 80vh;
+	/* max-height: 80vh; */
 	height: auto;
 	box-sizing: border-box;
-	margin: 5% auto;
-	/* align-items:center; */
-	/* border: 5px dashed; */
-	/* border-radius:12px; */
+	margin: 5% auto;    
 	display: flex;
 	flex-direction: row;
 	border-radius: 12px;
 	background: rgb(206, 212, 182, 0.6);
-	flex-wrap: wrap;
 `;
 const FormContainer = styled.div`
 	box-sizing: border-box;
-	width: 65vw;
+	width: 50%;
 	height: 40vh;
-	margin: 0 5%;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
-	/* border: solid blue; */
+	border-radius: 12px;
+	border: solid blue;
 `;
 
 const LogIn = styled.div`
@@ -48,8 +46,8 @@ const Error = styled.p`
 `;
 
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
-	<Wrap>
-		<div></div>
+	<Wrap  className="pic">
+		<FormContainer className="left"></FormContainer>
 		<FormContainer>
 			<Form>
 				<div>Full Name</div>
@@ -103,13 +101,13 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				)}
 
 				<label>
-					<h4>I am a Farmer.</h4>
+					<p>
 					<Field
 						type="checkbox"
 						name="farmer"
 						checked={values.farmer}
 						className="fields"
-					/>
+					/>I am a Farmer.</p>
 				</label>
 
 				<div>
@@ -165,11 +163,9 @@ const FormikSignUp = withFormik({
 		{ resetForm, setErrors, setSubmitting, setStatus, props }
 	) {
 		console.log(values);
-		if (values.username === "Shelly12") {
-			setErrors({ username: "Username already taken." });
-		} else {
-			resetForm();
-		}
+		
+		resetForm();
+		
 		setSubmitting(false);
 
 		axios
