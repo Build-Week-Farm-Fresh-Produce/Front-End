@@ -9,6 +9,7 @@
 - Formik
 - Yup
 - React-Router-Dom
+- Material UI
 
 
 ## Style Guide:
@@ -18,10 +19,7 @@ MVP
 
 - As a Farmer I can log in and add available options for purchase from my farm. 
     [ ] Sign Up (additional fields for Farmer)** -Afia
-    [ ] LogIn (Farmer/Customer) -Afia
-
-    
-
+    [x] LogIn (Farmer/Customer) -Afia
 
 - As a consumer I can log in and see produce available in my local area (No GEO location necessary for MVP).
     [ ] Sign Up (Consumer) - Afia
