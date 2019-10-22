@@ -11,7 +11,7 @@ const Card = styled.div`
 
 export default function ProductCard(props) {
 
-    console.log('card', props)
+  console.log('card', props)
   return (
   <>
   

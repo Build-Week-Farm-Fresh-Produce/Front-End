@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { data } from '../DummyData.js';
+import React from 'react';
+import { Link } from "react-router-dom";
+// import { data } from '../DummyData.js';
 import ProductCard from './ProductCard';
-import ProductDetails from './ProductCard';
+// import ProductDetails from './ProductCard';
 // import axios from 'axios';
 import '../App.css';
 import styled from 'styled-components'
@@ -14,8 +14,6 @@ justify-content: space-evenly;
 `;
 
 const Catalog = (props) => {
-
-  // const [products, setProducts] = useState(data)
 
   console.log('products:', props.products);
 
