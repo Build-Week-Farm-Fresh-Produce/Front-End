@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 // import { data } from '../DummyData.js';
 import ProductCard from './ProductCard';
+import Navbar from './Navbar';
 // import ProductDetails from './ProductCard';
 // import axios from 'axios';
 import '../App.css';
@@ -23,6 +24,19 @@ const Card = styled.div`
 const Catalog = (props) => {
 
   const [lineItem, setLineItem] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const searchProduct = event => {
+    event.preventDefault();
+    setSearch(event.target.value);
+    console.log('search', search)
+  }
+
+  const searchResults =  props.products.filter(product => {
+    return product.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  console.log('searchResults', searchResults)
   
   let cartTotal = lineItem.reduce(function (accumulator, item) {
     return accumulator + item.price;
@@ -42,9 +56,11 @@ const Catalog = (props) => {
 
   return (
     <>
+      <Navbar  products={props.products} searchProduct={searchProduct} />
       <h1>Product Catalog</h1>
       <CardWrapper>
-        {props.products.map(product => (
+        {/* {props.products.map(product => ( This works but without the search */}
+        {searchResults.map(product => (
           <Card>
           <Link exact to={`/products/${product.id}`}>
             <ProductCard key={product.id} {...props} product={product} lineItem={lineItem} />
@@ -52,7 +68,6 @@ const Catalog = (props) => {
           <button onClick={()=> setLineItem([...lineItem, product]) }>
             Add to cart
           </button>
-          {/* <button onClick={()=> {addToCart() }}>Add to cart</button> */}
           </Card>
         ))}
       </CardWrapper>
