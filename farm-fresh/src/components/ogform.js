@@ -5,8 +5,8 @@ import "../Registration.css";
 import styled from "styled-components";
 import { withFormik, Form, Field } from "formik";
 import axios from "axios";
-import { connect } from "react-redux";
-import { register } from "../actions/registerAction";
+import {connect} from 'react-redux'
+import {register} from '../actions/registerAction'
 
 const Wrap = styled.div`
 	max-width: 80vw;
@@ -51,23 +51,15 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 		<FormContainer className="left"></FormContainer>
 		<FormContainer>
 			<Form>
-				{/* <div>Full Name</div>
+				<div>Full Name</div>
 				<Field
 					type="text"
 					name="name"
 					placeholder="Enter your name"
 					className="fields"
 				/>
-				{touched.name && errors.name && <Error>{errors.name}</Error>} */}
-				<div>UserName</div>
-				<Field
-					type="text"
-					name="username"
-					placeholder="Enter your name"
-					className="fields"
-				/>
 				{touched.name && errors.name && <Error>{errors.name}</Error>}
-				{/* 
+
 				<div>Address</div>
 				<Field
 					type="text"
@@ -75,35 +67,34 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 					placeholder="please enter your address"
 					className="fields"
 				/>
-				{touched.address && errors.address && <Error>{errors.address}</Error>} */}
+				{touched.address && errors.address && <Error>{errors.address}</Error>}
 
 				<div>City</div>
-				<Field type="Numeric" className="fields" component="select" name="city_id">
-					<option value="0"> City</option>
-					<option value="1"> Baltimore</option>
-					<option value="2">San Diago</option>
-					<option value="3">Seattle</option>
-				</Field>
+				<Field
+					type="text"
+					name="city"
+					placeholder="please enter your city"
+					className="fields"
+				/>
 				{/* {touched.address && errors.address && <Error>{errors.address}</Error>} */}
 
 				<div>State</div>
-				<Field type="Numeric" className="fields" component="select" name="state_id">
-					<option value="0"> State</option>
-					<option value="1"> Maryland</option>
-					<option value="2">California</option>
-					<option value="3">Washington</option>
-				</Field>
-
+				<Field
+					type="text"
+					name="state"
+					placeholder="please enter your state"
+					className="fields"
+				/>
 				{/* {touched.address && errors.address && <Error>{errors.address}</Error>} */}
 
-				{/* <div>zipcode</div>
+				<div>zipcode</div>
 				<Field
 					type="text"
 					name="zip"
 					placeholder="please enter your zipcode"
 					className="fields"
 				/>
-				{touched.zip && errors.zip && <Error>{errors.zip}</Error>} */}
+				{touched.zip && errors.zip && <Error>{errors.zip}</Error>}
 
 				<div>Email Address</div>
 				<Field
@@ -136,7 +127,7 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 					<Error>{errors.confirmPassword}</Error>
 				)}
 
-				{/* <label>
+				<label>
 					<p>
 						<Field
 							type="checkbox"
@@ -146,7 +137,7 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 						/>
 						I am a Farmer.
 					</p>
-				</label> */}
+				</label>
 
 				<div>
 					{" "}
@@ -166,33 +157,31 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 
 const FormikSignUp = withFormik({
 	mapPropsToValues({
-		// name,
-		username,
+		name,
 		email,
-		// address,
-		city_id,
-		state_id,
-		// zip,
+		address,
+		city,
+		state,
+		zip,
 		password,
-		confirmPassword
-		// farmer
+		confirmPassword,
+		farmer
 	}) {
 		return {
-			// name: name || "",
-			username: username || "",
+			name: name || "",
 			email: email || "",
-			// address: address || "",
-			city_id: city_id || "",
-			state_id: state_id || "",
-			// zip: zip || "",
+			address: address || "",
+			city: city || "",
+			state: state || "",
+			zip: zip || "",
 			password: password || "",
-			confirmPassword: confirmPassword || ""
-			// farmer: farmer || false
+			confirmPassword: confirmPassword || "",
+			farmer: farmer || false
 		};
 	},
 	validationSchema: Yup.object().shape({
-		username: Yup.string().required("Name is required"),
-		// zip: Yup.string().required("Zip Code is required"),
+		name: Yup.string().required("Name is required"),
+		zip: Yup.string().required("Zip Code is required"),
 		email: Yup.string().required("Email is required"),
 		password: Yup.string()
 			.min(8)
@@ -214,15 +203,15 @@ const FormikSignUp = withFormik({
 
 		setSubmitting(false);
 
-		props.register(values);
+		props.register(values)
 	}
 })(SignUp);
 
 render(<FormikSignUp />, document.getElementById("root"));
 
-const mapStateToProps = state => {
-	return {};
-};
+const mapStateToProps = state =>{
+return {}
+}
 
 export default connect(
 	mapStateToProps,
