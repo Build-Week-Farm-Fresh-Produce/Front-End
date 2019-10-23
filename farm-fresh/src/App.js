@@ -15,6 +15,11 @@ import UpdateForm from "./components/UpdateForm";
 import Item from "./components/Item";
 import NewItem from "./components/NewItem";
 import axios from "axios";
+import Catalog from "./components/Catalog"
+import ProductDetails from "./components/ProductDetails"
+import Cart from "./components/Cart"
+import { data } from './DummyData.js';
+import './App.css';
 
 function App() {
 	const [products, setProducts] = useState(data);
@@ -32,6 +37,17 @@ function App() {
 		<div>
 			<Route path="/signin" component={SignIn} />
 			<Route path="/register" component={Registration} />
+  // const [lineItem, setLineItem] = useState([]);
+
+  return (
+
+    <Router>
+      <Route path='/signin' component={SignIn} />
+      <Route path='/register' component={Registration} />
+      <Route exact path="/" render={props => <Catalog {...props} products={products} />} />
+      <Route exact path="/products/:id" render={props => <ProductDetails {...props} products={products} />} />
+      {/* <Route exact path="/cart" render={props => <Cart {...props} products={products} lineItem={lineItem} setLineItem={setLineItem} />} /> */}
+      <Route exact path="/cart" render={props => <Cart {...props} />} />
 
 			<Route
 				exact
