@@ -11,7 +11,8 @@ const initialState = {
     updating: false,
     updated: false,
     deleting:false,
-    deleted: false
+    deleted: false,
+    isLoggedin: false
 };
 
 export default initialState

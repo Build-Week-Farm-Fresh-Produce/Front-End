@@ -2,6 +2,9 @@ import React from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import axios from 'axios'
 
+import { connect } from "react-redux";
+import { login } from "../actions/loginAction";
+
 const Login = props => {
 	const [form, setForm] = React.useState({
 		username: "",
@@ -54,4 +57,12 @@ const Login = props => {
 	);
 };
 
-export default Login;
+
+const mapStateToProps = state => {
+	return {};
+};
+
+export default connect(
+	mapStateToProps,
+	{ login }
+)(Login);

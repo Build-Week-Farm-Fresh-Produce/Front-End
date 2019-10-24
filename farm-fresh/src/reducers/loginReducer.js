@@ -1,27 +1,37 @@
-import axios from "axios";
+import {
+	LOGIN_START,
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE
+} from "../actions/loginAction";
+import initialState from "./InitialState";
 
-export const REGISTER_START = "REGISTER_START";
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-export const REGISTER_FAILURE = "REGISTER_FAILURE";
-
-export const register = newUser => dispatch => {
-	console.log("Registration:", newUser);
-	dispatch({ type: REGISTER_START });
-    return axios 
-    .post("https://farm-fresh-bw.herokuapp.com/api/auth/shop/register", newUser)
-    .then(res => {
-        console.log(res.data)
-		const token = res.data.token;
-		localStorage.setItem("token", token);
-		dispatch({
-			type: REGISTER_SUCCESS,
-			payload: {
-				data: res.data
-			}
-		});
-    })
-    .catch(err => {
-        dispatch({ type:REGISTER_FAILURE, payload: err})
-    });
+const loginReducer = (state = initialState, action) => {
+	switch (action.type) {
+		case LOGIN_START:
+			return {
+				...state,
+				isLoggingIn: true,
+				isLoggedIn: false,
+				error: ""
+			};
+		case LOGIN_SUCCESS:
+			return {
+				...state,
+				user: action.payload.user,
+				token: action.payload.data.token,
+				isLoggingIn: false,
+				isLoggedIn: true,
+				error: ""
+			};
+		case LOGIN_FAILURE:
+			return {
+				...state,
+				isLoggingIn: false,
+				isLoggedIn: false,
+				error: action.payload
+			};
+		default:
+			return state;
+	}
 };
-
+export default loginReducer;
