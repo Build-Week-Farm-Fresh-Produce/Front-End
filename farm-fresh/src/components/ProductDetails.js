@@ -5,8 +5,6 @@ import styled from 'styled-components'
 
 const ProductDetails = (props) => {
 
-  // const [lineItem, setLineItem] = useState([]);
-
   const currentProduct = props.products.find(curr => {
     return Number(curr.id) === Number(props.match.params.id)
   })
