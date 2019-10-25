@@ -1,91 +1,68 @@
-# Front-End
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Build Week Farm Fresh Produce
+## Available Scripts
 
-## Installed dependencies: 
+In the project directory, you can run:
 
-- Axios
-- Styled-Components
-- Formik
-- Yup
-- React-Router-Dom
-- Material UI
+### `npm start`
 
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Style Guide:
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
+### `npm test`
 
-MVP
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- As a Farmer I can log in and add available options for purchase from my farm. 
-    [ ] Sign Up (additional fields for Farmer)** -Afia
-    [x] LogIn (Farmer/Customer) -Afia
+### `npm run build`
 
-- As a consumer I can log in and see produce available in my local area (No GEO location necessary for MVP).
-    [ ] Sign Up (Consumer) - Afia
-    [ ] Location Modal (zip code)/ one input form, etc. 
-    [ ] MarketPlace/Product Catalog** (with ability to search all or separate farm)  
-    [ ] Item Page/ Product page 
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-- As a farmer I can Edit and delete items from my inventory.
-    [ ] Inventory Page
-        [ ] Button Link to Customer View (separate page)
-        [ ] New Item Form  
-        [ ] Edit Item
-        [ ] Delete Item 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- As a consumer I can fill up my shopping cart, and place an order (no payment necessary for MVP).
-    [ ] Shopping Cart View ()
-    [ ] Order Confirmation Page
+### `npm run eject`
 
-- As a farmer I can see the orders that come in for my produce so that I can prepare the orders for pick up.
-    [ ] Order Inbox (Farmer)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-STRETCH
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Add a google maps component that allows users to geolocate the farms in their local area.
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-- Provide a payment plan or subscription service that allows me monthly/weekly access to farm       fresh produce
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-- Link farmers up with local drivers so that the app can become the instacart of farm fresh         produce
+## Learn More
 
-## **Web Application Development Role Description**  ((React 1))
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-As a Front End Developer, you are tasked to work in conjunction with the Web UI Developer/s on your team as well as the Front End Framework Developer on the product to deliver a fully functioning web app.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Your role as a Front End Developer is work on the features of the product that allow you to demonstrate mastery over the concepts such as:
+### Code Splitting
 
-- [ ] Network request for reading data
-  
-  [ ] Displaying and laying out the information received from a 3rd API
-  
-  [ ] Implementing industry standards in regards to the way that your React Components are            architected and developed, i.e. hooks are used and implemented correctly
-  
-  [ ] Proper usage of React Router
-  
-  [ ] Forms in the app are managed well, including the use of form validation
-  
-  [ ] Your application should be built to demonstrate that your app solves the problem your team      set out to solve.
-  
-  [ ] Focus the displaying of information and working with other members of your team to ensure that users can seamlessly navigate through the tools that you’re building.
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
+### Analyzing the Bundle Size
 
-## Front End Framework **Development Role Description**  ((React 2))
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-As a Front End Framework Developer, you are tasked to work in conjunction with the Web UI Developer/s on your team as well as the Front End Framework Developer on the product to deliver a fully functioning web app.
+### Making a Progressive Web App
 
-### Your role as a Front End Framework Developer is to work on the features of the product that allow you to demonstrate mastery over the concepts such as:
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-- [ ]Planning and developing a state management system for your application
- 
-  [ ] Handle HTTP requests for all CRUD methods
-  
-  [ ] Implementing client-side authentication in conjunction with the BE developer
-  
-  [ ]Implementing industry standards in regards to the way that you manage state in your React application.
+### Advanced Configuration
 
-  [ ]  Implement some testing into your application
-  
-  [ ] Your application should be built to demonstrate that your app solves the problem your team set out to solve. Focus the displaying of information and working with other members of your team to ensure that users can seamlessly navigate through the tools that you’re building.
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
