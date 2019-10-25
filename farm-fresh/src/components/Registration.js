@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { render, BrowserRouter } from "react-dom";
 import * as Yup from "yup";
+import "../Registration.css";
 import styled from "styled-components";
 import { withFormik, Form, Field } from "formik";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import axios from 'axios'
+import axios from "axios";
 
 const Wrap = styled.div`
 	max-width: 80vw;
-	max-height: 80vh;
+	/* max-height: 80vh; */
 	height: auto;
 	box-sizing: border-box;
 	margin: 5% auto;
-	/* align-items:center; */
-	/* border: 5px dashed; */
-	/* border-radius:12px; */
 	display: flex;
 	flex-direction: row;
 	border-radius: 12px;
 	background: rgb(206, 212, 182, 0.6);
-	flex-wrap: wrap;
 `;
 const FormContainer = styled.div`
 	box-sizing: border-box;
-	width: 65vw;
+	width: 50%;
 	height: 40vh;
-	margin: 0 5%;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
-	/* border: solid blue; */
+	border-radius: 12px;
+	border: solid blue;
 `;
 
 const LogIn = styled.div`
@@ -48,8 +46,8 @@ const Error = styled.p`
 `;
 
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
-	<Wrap>
-		<div></div>
+	<Wrap className="pic">
+		<FormContainer className="left"></FormContainer>
 		<FormContainer>
 			<Form>
 				<div>Full Name</div>
@@ -61,7 +59,6 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{touched.name && errors.name && <Error>{errors.name}</Error>}
 
-
 				<div>Address</div>
 				<Field
 					type="text"
@@ -71,6 +68,33 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{touched.address && errors.address && <Error>{errors.address}</Error>}
 
+				<div>City</div>
+				<Field
+					type="text"
+					name="city"
+					placeholder="please enter your city"
+					className="fields"
+				/>
+				{/* {touched.address && errors.address && <Error>{errors.address}</Error>} */}
+
+				<div>State</div>
+				<Field
+					type="text"
+					name="state"
+					placeholder="please enter your state"
+					className="fields"
+				/>
+				{/* {touched.address && errors.address && <Error>{errors.address}</Error>} */}
+
+				<div>zipcode</div>
+				<Field
+					type="text"
+					name="zip"
+					placeholder="please enter your zipcode"
+					className="fields"
+				/>
+				{touched.zip && errors.zip && <Error>{errors.zip}</Error>}
+
 				<div>Email Address</div>
 				<Field
 					type="email"
@@ -78,8 +102,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 					placeholder="Enter your email"
 					className="fields"
 				/>
-                {touched.email && errors.email && <Error>{errors.email}</Error>}
-                
+				{touched.email && errors.email && <Error>{errors.email}</Error>}
+
 				<div>Create a Password</div>
 				<Field
 					type="password"
@@ -103,13 +127,15 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				)}
 
 				<label>
-					<h4>I am a Farmer.</h4>
-					<Field
-						type="checkbox"
-						name="farmer"
-						checked={values.farmer}
-						className="fields"
-					/>
+					<p>
+						<Field
+							type="checkbox"
+							name="farmer"
+							checked={values.farmer}
+							className="fields"
+						/>
+						I am a Farmer.
+					</p>
 				</label>
 
 				<div>
@@ -133,6 +159,9 @@ const FormikSignUp = withFormik({
 		name,
 		email,
 		address,
+		city,
+		state,
+		zip,
 		password,
 		confirmPassword,
 		farmer
@@ -141,6 +170,9 @@ const FormikSignUp = withFormik({
 			name: name || "",
 			email: email || "",
 			address: address || "",
+			city: city || "",
+			state: state || "",
+			zip: zip || "",
 			password: password || "",
 			confirmPassword: confirmPassword || "",
 			farmer: farmer || false
@@ -148,7 +180,7 @@ const FormikSignUp = withFormik({
 	},
 	validationSchema: Yup.object().shape({
 		name: Yup.string().required("Name is required"),
-		address: Yup.string().required("Address is required"),
+		zip: Yup.string().required("Zip Code is required"),
 		email: Yup.string().required("Email is required"),
 		password: Yup.string()
 			.min(8)
@@ -165,11 +197,9 @@ const FormikSignUp = withFormik({
 		{ resetForm, setErrors, setSubmitting, setStatus, props }
 	) {
 		console.log(values);
-		if (values.username === "Shelly12") {
-			setErrors({ username: "Username already taken." });
-		} else {
-			resetForm();
-		}
+
+		resetForm();
+
 		setSubmitting(false);
 
 		axios
