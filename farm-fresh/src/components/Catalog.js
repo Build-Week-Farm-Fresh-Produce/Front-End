@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import ProductCard from './ProductCard';
 import Cart from './Cart';
 import Navbar from './Navbar';
 import Modal from "./Modal";
 import useModal from './useModal';
-// import axios from 'axios';
+import axios from 'axios';
 import '../App.css';
 import styled from 'styled-components'
 
@@ -111,24 +111,12 @@ const Catalog = (props) => {
   }
 
   const searchResults =  props.products.filter(product => {
-    return product.name.toLowerCase().includes(search.toLowerCase());
+    return product.product_name.toLowerCase().includes(search.toLowerCase());
   });
   
   let cartTotal = lineItem.reduce(function (accumulator, item) {
     return accumulator + item.price;
   }, 0);
-
-  // console.log('products:', props.products);
-  
-  // const currentProduct = props.products.find(curr => {
-  //   return Number(curr.id) === Number(props.match.params.id)
-  // })
-
-  // const addToCart = event => {
-  //   setLineItem(currentProduct);
-  //   console.log('added to cart');
-    console.log('lineItem',lineItem);
-  // }
 
 if (cartTotal > 0) {
 
@@ -140,8 +128,8 @@ if (cartTotal > 0) {
         <CardWrapper>
           {searchResults.map(product => (
             <Card>
-              <StyledLink exact to={`/products/${product.id}`} style={{ textDecoration: 'none' }}>
-                <ProductCard key={product.id} {...props} product={product} lineItem={lineItem} />
+              <StyledLink exact to={`/products/${product.product_id}`} style={{ textDecoration: 'none' }}>
+                <ProductCard key={product.product_id} {...props} product={product} lineItem={lineItem} />
               </StyledLink>
               <Button onClick={()=> setLineItem([...lineItem, product]) }>
                 Add to cart
@@ -165,8 +153,8 @@ else {
       <CardWrapper>
         {searchResults.map(product => (
           <Card>
-            <StyledLink exact to={`/products/${product.id}`} style={{ textDecoration: 'none' }}>
-              <ProductCard key={product.id} {...props} product={product} lineItem={lineItem} />
+            <StyledLink exact to={`/products/${product.product_id}`} style={{ textDecoration: 'none' }}>
+              <ProductCard key={product.product_id} {...props} product={product} lineItem={lineItem} />
             </StyledLink>
             <Button onClick={()=> setLineItem([...lineItem, product]) }>
               Add to cart

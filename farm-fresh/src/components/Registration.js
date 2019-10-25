@@ -8,7 +8,7 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import axios from "axios";
 
 const Wrap = styled.div`
-	max-width: 80vw;
+	max-width: 40vw;
 	/* max-height: 80vh; */
 	height: auto;
 	box-sizing: border-box;
@@ -20,13 +20,14 @@ const Wrap = styled.div`
 `;
 const FormContainer = styled.div`
 	box-sizing: border-box;
-	width: 50%;
-	height: 40vh;
+	width: 100%;
+	// height: 40vh;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
 	border-radius: 12px;
 	border: solid blue;
+	justify-content: center;
 `;
 
 const LogIn = styled.div`
@@ -45,13 +46,23 @@ const Error = styled.p`
 	color: red;
 `;
 
+const StyledForm = styled(Form)`
+	width: 80%;
+`;
+
+const StyledField = styled(Field)`
+	font-size: 1rem;
+	width: 100%;
+	margin-bottom: 3%;
+`;
+
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 	<Wrap className="pic">
-		<FormContainer className="left"></FormContainer>
+		{/* <FormContainer className="left"></FormContainer> */}
 		<FormContainer>
-			<Form>
-				<div>Full Name</div>
-				<Field
+			<StyledForm>
+				<label>Full Name</label>
+				<StyledField
 					type="text"
 					name="name"
 					placeholder="Enter your name"
@@ -59,8 +70,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{touched.name && errors.name && <Error>{errors.name}</Error>}
 
-				<div>Address</div>
-				<Field
+				<label>Address</label>
+				<StyledField
 					type="text"
 					name="address"
 					placeholder="please enter your address"
@@ -68,8 +79,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{touched.address && errors.address && <Error>{errors.address}</Error>}
 
-				<div>City</div>
-				<Field
+				<label>City</label>
+				<StyledField
 					type="text"
 					name="city"
 					placeholder="please enter your city"
@@ -77,8 +88,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{/* {touched.address && errors.address && <Error>{errors.address}</Error>} */}
 
-				<div>State</div>
-				<Field
+				<label>State</label>
+				<StyledField
 					type="text"
 					name="state"
 					placeholder="please enter your state"
@@ -86,8 +97,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{/* {touched.address && errors.address && <Error>{errors.address}</Error>} */}
 
-				<div>zipcode</div>
-				<Field
+				<label>zipcode</label>
+				<StyledField
 					type="text"
 					name="zip"
 					placeholder="please enter your zipcode"
@@ -95,8 +106,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{touched.zip && errors.zip && <Error>{errors.zip}</Error>}
 
-				<div>Email Address</div>
-				<Field
+				<label>Email Address</label>
+				<StyledField
 					type="email"
 					name="email"
 					placeholder="Enter your email"
@@ -104,8 +115,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 				/>
 				{touched.email && errors.email && <Error>{errors.email}</Error>}
 
-				<div>Create a Password</div>
-				<Field
+				<label>Create a Password</label>
+				<StyledField
 					type="password"
 					name="password"
 					placeholder="enter your password"
@@ -115,8 +126,8 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 					<Error>{errors.password}</Error>
 				)}
 
-				<div>Verify Password</div>
-				<Field
+				<label>Verify Password</label>
+				<StyledField
 					type="password"
 					name="confirmPassword"
 					placeholder="please confirm password"
@@ -128,7 +139,7 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 
 				<label>
 					<p>
-						<Field
+						<StyledField
 							type="checkbox"
 							name="farmer"
 							checked={values.farmer}
@@ -149,7 +160,7 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
 						Register
 					</button>
 				</div>
-			</Form>
+			</StyledForm>
 		</FormContainer>
 	</Wrap>
 );

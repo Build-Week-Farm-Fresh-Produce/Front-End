@@ -60,9 +60,9 @@ export default function Navbar(props) {
   <Nav>
     <Logo><Title>Farm Fresh Produce<i class="fas fa-carrot" aria-hidden="true"></i></Title></Logo>
     <Navlinks>
-      <Link>Home</Link>
-      <Link>Catalog</Link>
-      <Link>About</Link>
+      <a href="/">Home</a>
+      {/* <Link>Catalog</Link> */}
+      <a href="/about">About</a>
     
     <Search>
       <Searchform
@@ -73,8 +73,8 @@ export default function Navbar(props) {
       {/* <button onClick={() => props.setSearch("")}>Clear</button> */}
     </Search>
     <Account>
-      <Link>Sign Up</Link>
-      <Link>Login</Link>
+      <Link exact to={`/registration/`}>Register</Link>
+      <Link exact to={`/signin/`}>Sign In</Link>
     </Account>
     </Navlinks>
   </Nav>
