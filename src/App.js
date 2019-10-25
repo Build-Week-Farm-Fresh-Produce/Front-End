@@ -37,7 +37,7 @@ function App() {
     <Router>
       <Route path='/signin' component={SignIn} />
       <Route path='/register' component={Registration} />
-      <Route exact path="/catalog" render={props => <Catalog {...props} products={products} />} />
+      <Route exact path="/" render={props => <Catalog {...props} products={products} />} />
       <Route exact path="/products/:product_id" render={props => <ProductDetails {...props} products={products}  />} />
       <Route exact path="/registration" render={props => <Registration {...props} />} />
       <Route exact path="/signin" render={props => <SignIn {...props} />} />
