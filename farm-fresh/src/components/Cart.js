@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../App.css';
 import styled from 'styled-components'
 
@@ -76,7 +77,7 @@ return (
     </tfoot>
     
   </Table>
-  <Cartbutton>Proceed to checkout</Cartbutton>
+  <Link exact to={`/registration/`}><Cartbutton>Proceed to checkout</Cartbutton></Link>
   <button onClick={() => props.setLineItem([])}>Clear cart</button>
 </CartWrapper>
 </>

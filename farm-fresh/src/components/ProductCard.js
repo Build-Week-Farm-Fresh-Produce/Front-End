@@ -33,10 +33,10 @@ export default function ProductCard(props) {
   return (
   <>
   
-  <CardDetails key={props.product.id}>
+  <CardDetails key={props.product.product_id}>
     <Image src={props.product.img}/>
     <Cardtext>
-      <H3>{props.product.name}</H3>
+      <H3>{props.product.product_name}</H3>
       <H5>{`by ${props.product.farm}`}</H5>
       <H3>{`$ ${props.product.price.toFixed(2)}`}</H3>
     </Cardtext>

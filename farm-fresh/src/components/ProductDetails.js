@@ -43,17 +43,12 @@ align-self: center
 
 const ProductDetails = (props) => {
 
+  console.log('props', props)
+
   const currentProduct = props.products.find(curr => {
-    return Number(curr.id) === Number(props.match.params.id)
+    return Number(curr.product_id) === Number(props.match.params.product_id)
   })
 
-  // const addToCart = event => {
-  //   // lineItem.push(currentProduct);
-  //   props.setLineItem(currentProduct);
-  //   console.log('added to cart');
-  //   console.log('lineItem',props.lineItem);
-  // }
-console.log('ignacio', props.history.goBack)
   return (
     
     <ProductWrapper>
@@ -64,20 +59,12 @@ console.log('ignacio', props.history.goBack)
       </Back>
       <Product>
         
-        <H1>{currentProduct.name}</H1>
+        <H1>{currentProduct.product_name}</H1>
         <Image src={currentProduct.img}/>
         <H2>{`$ ${currentProduct.price.toFixed(2)}`}</H2>
         <H3>{`by ${currentProduct.farm}`}</H3>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, vitae ullam veritatis id sunt molestiae doloremque. A, culpa magni? Obcaecati, distinctio. Deserunt nostrum maxime excepturi laborum, numquam similique laboriosam quas!</p>
       </Product>
-
-        {/* <button onClick={()=> {
-          addToCart()
-        }}
-        >Add to cart</button> */}
-        
-        {/* <hr></hr> */}
-        {/* <Cart {...props} lineItem={props.lineItem} /> */}
     </ProductWrapper>
   )
 };
